@@ -1,10 +1,9 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Profile from './components/Profile';
 
 
-const Profile = () => {
-  return <h2>Страница профиля</h2>;
-};
+
 
 const Messages = () => {
   return <h2>Диалоги</h2>;
