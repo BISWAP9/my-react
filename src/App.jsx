@@ -4,6 +4,7 @@ import Profile from "./components/Profile";
 import Messages from "./components/Messages";
 import Friends from "./components/Friends";
 import Settings from "./components/Settings";
+import Shop from "./components/Shop";
 
 function App(props) {
     return (
