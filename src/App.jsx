@@ -51,12 +51,7 @@ function App(props) {
                                 />
                             }
                         />
-                        <Route
-                            path="/shop"
-                            element={
-                                <Shop function={props.function.key_getUsers} />
-                            }
-                        />
+                        <Route path="/shop" element={<Shop />} />
                     </Routes>
                 </div>
             </div>
