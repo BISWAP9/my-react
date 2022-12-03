@@ -17,23 +17,28 @@ const TableRow = (props) => {
 class Friends extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { userRow: new Date() };
+        this.state = { userRow: [] };
     }
+
     componentDidMount() {
-        let users = this.props.function();
-        let usersCount = Object.keys(users).length;
-        let userRow = [];
-        for (let i = 0; i < usersCount; i++) {
-            userRow.push(
-                <TableRow
-                    id={users[i].id}
-                    key={i}
-                    index={i}
-                    name={users[i].name}
-                    lastname={users[i].lastname}
-                />
-            );
-        }
+        this.props.function().then((users) => {
+            console.log(users);
+            let usersCount = users.length;
+            let userRow = [];
+
+            for (let i = 0; i < usersCount; i++) {
+                userRow.push(
+                    <TableRow
+                        id={users[i].id}
+                        key={i}
+                        index={i}
+                        name={users[i].name}
+                        lastname={users[i].lastname}
+                    />
+                );
+            }
+            this.setState({ userRow: userRow });
+        });
     }
 
     render() {
@@ -42,12 +47,13 @@ class Friends extends React.Component {
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Фамилия и Имя</th>
+                        <th scope="col">Фамилия и имя</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>{this.state.userRow}</tbody>
             </table>
         );
     }
 }
+
 export default Friends;
