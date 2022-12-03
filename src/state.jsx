@@ -17,10 +17,10 @@ let users = {};
 //     5: { name: "Евгения", lastname: "Петрова", id: 14 },
 // };
 
-export function getUser() {
-    // for(let i = 0; i < Object.keys(users).length; i++) {
-    // 	if (users[i].id == userId) return users[i];
-    // }
+export function getUser(userId) {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].id == userId) return users[i];
+    }
     return user;
 }
 
